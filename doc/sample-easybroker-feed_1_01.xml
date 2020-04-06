@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+EasyBroker feed format.
+
+This file is both an example and reference for the EasyBroker
+property interchange format used to publish properties on partner sites.
+
+You should have received a unique URL tailored for you to read from it.
+The content of URLs to xml feeds that have been provided to you is generated daily.
+
+Every file in this format includes only properties specific to a particular
+country, so for example easybroker_MX.xml will contain only properties
+which have been published in Mexico.
+
+
+Properties are grouped by Agency (the organization owning them).
+Every Agency and Property has a unique <id> field which you can use to
+keep track of updates.
+
+If a property or agency is no longer valid or has been removed it wont be
+included in subsequent versions of the same feed.
+
+Most fields are self explanatory, for those with a particular format
+or in need of some notes, comments will be provided.
+All tags are required and will be present unless otherwise noted.
+
+-->
+<easybroker version="1.01">
+  <agencies>
+
+    <!--
+       An agency element will be generated for each organization having
+       published properties in this file's country
+     -->
+    <agency>
+
+      <!--
+        EasyBroker's unique numeric id for this agency
+      -->
+      <id>2</id>
+      <name><![CDATA[Example Enterprises]]></name>
+      <account_owner><![CDATA[Mr Exemplifier]]></account_owner>
+
+      <!--
+        The agency's phone number. Please note that the string
+        can contain non-numeric characters
+      -->
+      <phone><![CDATA[555-555-555]]></phone>
+
+      <!--
+        A free-style string provided by the user to
+        uniquely identify herself with you.
+
+        The value of partner_id can be something like
+        an email, numeric ID, API key or anything else you choose
+        as method for uniquely identifying users that
+        have an account at EasyBroker and at your site.
+      -->
+      <partner_id><![CDATA[example@yoursite.com]]></partner_id>
+
+      <properties>
+
+        <property>
+
+          <!--
+            Each property has a unique string identifier.
+
+            A property having more than one operation type
+            (sale, rental, temporary-rental) will appear
+            once for each of them. Having the suffix letter
+            appended to the property numeric ID.
+
+            The exact value of this <id> element must be
+            used when sending contact requests or any other
+            information back to EasyBroker that refers to this
+            specific property.
+          -->
+          <id>384s</id>
+
+          <!--
+             An string identifier used by the Agency.
+
+             This is a free text field entered by the Agency
+             and there is no guarantee this value is unique.
+          -->
+          <agency_property_id>CATE01000s</agency_property_id>
+
+          <!--
+             Public property's URL show page.
+
+             If you need direct users to the property detail,
+             be sure to use the exact value of this tag as URL.
+          -->
+          <url>http://www.eb.dev/es/real-estate-sale/384-CATE01000-example-property</url>
+
+          <!-- A title you can show for this property on your site's search results -->
+          <title><![CDATA[More Information 3]]></title>
+
+          <description><![CDATA[This is a very cool description for embedding in your website about this property]]></description>
+
+          <!-- The property type in the country language. -->
+          <property_type><![CDATA[Departamento]]></property_type>
+
+          <!-- Following four room numeric info present only if set by user -->
+          <bedrooms>0</bedrooms>
+          <bathrooms>0</bathrooms>
+          <half_bathrooms>0</half_bathrooms>
+          <parking_spaces>0</parking_spaces>
+
+          <!--
+            Lot dimensions in country metric system (Mexico: meters)
+            Only present if set by user.
+          -->
+          <lot_length>0</lot_length>
+          <lot_width>0</lot_width>
+
+          <!-- Lot area only present if set by user. square meters -->
+          <lot_size>0</lot_size>
+          <construction_size>0</construction_size>
+
+          <!-- optional -->
+          <expenses><![CDATA[Mantenimiento incluido]]></expenses>
+
+          <location>
+            <region><![CDATA[Distrito Federal]]></region>
+            <city><![CDATA[Benito Juárez]]></city>
+
+            <!-- Following three fields present only if specified by user -->
+            <city_area><![CDATA[Del Valle Norte]]></city_area>
+            <address><![CDATA[Xola 204]]></address>
+            <postal_code>12345</postal_code>
+          </location>
+
+          <!-- Only present if specified by user -->
+          <geo_location>
+            <latitude>90.0000</latitude>
+            <longitude>-90.0000</longitude>
+          </geo_location>
+
+          <!--
+            The operation type can be one of:
+               sale, rental, temporary_rental
+          -->
+          <operation type="sale">
+
+            <!--
+              If present, the unit attribute indicates the price is
+              bound to the property dimensions and can have the following values:
+                square_meter, hectare
+            -->
+            <price amount="2000" currency="MXN" unit="square_meter" />
+
+            <!--
+              For temporary_rental properties, many price elements could be
+              present with different period values.
+
+              The possible values for period are:
+                daily, weekly, monthly
+            -->
+            <!--
+            <price amount="100" currency="MXN" period="weekly" />
+            -->
+          </operation>
+
+          <!-- An optional list of URLs with photos of this property -->
+          <images>
+            <image><![CDATA[http://example.org/some_image.jpg]]></image>
+          </images>
+
+          <!-- An optional list of property features or amenities -->
+          <features>
+            <feature><![CDATA[Acceso para discapacitados]]></feature>
+            <feature><![CDATA[Aire acondicionado]]></feature>
+            <feature><![CDATA[Alarma de seguridad]]></feature>
+            <feature><![CDATA[Alberca]]></feature>
+            <feature><![CDATA[Amueblado]]></feature>
+            <feature><![CDATA[Área de juegos infantiles]]></feature>
+            <feature><![CDATA[Áreas verdes]]></feature>
+            <feature><![CDATA[Asador]]></feature>
+            <feature><![CDATA[Balcón]]></feature>
+            <feature><![CDATA[Bodega]]></feature>
+            <feature><![CDATA[Canchas de squash]]></feature>
+            <feature><![CDATA[Canchas de tenis]]></feature>
+            <feature><![CDATA[Chimenea]]></feature>
+            <feature><![CDATA[Cisterna]]></feature>
+            <feature><![CDATA[Cocina integral]]></feature>
+            <feature><![CDATA[Cuarto de servicio]]></feature>
+            <feature><![CDATA[Elevador]]></feature>
+            <feature><![CDATA[Estacionamiento para visitas]]></feature>
+            <feature><![CDATA[Gas natural]]></feature>
+            <feature><![CDATA[Gimnasio]]></feature>
+            <feature><![CDATA[Jacuzzi]]></feature>
+            <feature><![CDATA[Lavadora]]></feature>
+            <feature><![CDATA[Línea telefónica]]></feature>
+            <feature><![CDATA[No se admiten mascotas]]></feature>
+            <feature><![CDATA[No se permite fumar]]></feature>
+            <feature><![CDATA[Patio]]></feature>
+            <feature><![CDATA[Portero]]></feature>
+            <feature><![CDATA[Roof Garden]]></feature>
+            <feature><![CDATA[Salón de usos múltiples]]></feature>
+            <feature><![CDATA[Secadora]]></feature>
+            <feature><![CDATA[Terraza]]></feature>
+            <feature><![CDATA[Vigilancia]]></feature>
+          </features>
+
+          <!-- An optional list of URLs of web pages with videos of this property -->
+          <videos>
+            <video><![CDATA[http://example.org/video_web_page]]></video>
+          </videos>
+
+          <!-- An optional agent if one is assigned to this property -->
+          <agent>
+            <id>123</id>
+            <name><![CDATA[Mr Agent]]></name>
+            <email><![CDATA[agent@test.com]]></email>
+            <cell><![CDATA[123345789]]></cell>
+          </agent>
+
+        </property>
+      </properties>
+    </agency>
+  </agencies>
+</easybroker>

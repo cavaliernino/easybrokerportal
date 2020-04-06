@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+bart:
+  email: bart@simpsons.com
+  company:  Simpsons Co
+  phone: 555-666-7777
+  first_name: Bart
+  last_name: Simpson

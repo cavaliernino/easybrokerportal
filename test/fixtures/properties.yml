@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+simpson_house:
+  published: true
+  title: Springfield House
+  description: Beautiful house located in Springfield
+  property_type: house
+  sale: true
+  sale_price: 550000
+  currency: usd
+  user: bart
