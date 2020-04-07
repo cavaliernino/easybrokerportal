@@ -6,7 +6,7 @@ class Property < ApplicationRecord
   belongs_to :currency
   belongs_to :user
 
-  validates :property_type, :title, :description, :currency, presence: true
+  validates :property_type, :title, :description, :currency, :neighborhood, presence: true
   validate :operation_present?
 
   def operation_present?
